@@ -1,0 +1,13 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: cliffano
+  description: Ansible Role for setting up Docker on DigitalOcean droplet as per guide https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-getting-started
+  company: "Studio Cliffano"
+  license: "license (MIT)"
+  min_ansible_version: 1.6.0
+  platforms:
+  - name: Ubuntu
+  categories:
+    - system

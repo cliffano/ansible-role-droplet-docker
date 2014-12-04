@@ -1,0 +1,25 @@
+---
+- name: Update your droplet
+  apt: update_cache=yes upgrade=yes
+
+- name: Get operating system release
+  shell: uname -r
+  register: os_release
+
+- name: Make sure aufs support is available
+  apt: name=linux-image-extra-{{ os_release.stdout }} state=present
+
+- name: Add docker repository key to apt-key for package verification
+  apt_key: url=https://get.docker.io/gpg state=present
+
+- name: Add the docker repository to aptitude sources
+  apt_repository: repo='deb http://get.docker.io/ubuntu docker main' state=present
+
+- name: Update the repository with the new addition
+  apt: update_cache=yes
+
+- name: Download and install docker
+  apt: name=lxc-docker state=present
+
+- name: Enable forwarding with UFW
+  replace: dest=/etc/default/ufw regexp='^DEFAULT_FORWARD_POLICY="DROP"$' replace='DEFAULT_FORWARD_POLICY="ACCEPT"'
