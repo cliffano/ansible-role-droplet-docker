@@ -1,0 +1,10 @@
+---
+language: python
+python: "2.7"
+before_install:
+  - sudo apt-get install -quiet python-apt python-pycurl
+install:
+  - pip install ansible
+script:
+  - ansible-playbook --syntax-check -i localhost, --connection=local test/test.yml
+  - ansible-playbook --sudo -i localhost, --connection=local test/test.yml
