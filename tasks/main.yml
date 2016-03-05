@@ -8,7 +8,7 @@
 
 - name: Make sure aufs support is available
   apt: name=linux-image-extra-{{ os_release.stdout }} state=present
-  when: "{{ lookup('env','MODE') }}" != "travis"
+  when: "{{ lookup('env','MODE') }} != travis"
 
 - name: Add docker repository key to apt-key for package verification
   apt_key: url=https://get.docker.io/gpg state=present
