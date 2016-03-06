@@ -6,9 +6,9 @@
   shell: uname -r
   register: os_release
 
-- name: Make sure aufs support is available
-  apt: name=linux-image-extra-{{ os_release.stdout }} state=present
-  when: "{{ lookup('env','IGNORE_AUFS') }} == true"
+# - name: Make sure aufs support is available
+#   apt: name=linux-image-extra-{{ os_release.stdout }} state=present
+#   when: "{{ lookup('env','IGNORE_AUFS') }} == true"
 
 - name: Add docker repository key to apt-key for package verification
   apt_key: url=https://get.docker.io/gpg state=present
