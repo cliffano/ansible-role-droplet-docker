@@ -1,3 +1,5 @@
+[![Build Status](https://img.shields.io/travis/cliffano/ansible-role-droplet-docker.svg)](http://travis-ci.org/cliffano/ansible-role-droplet-docker)
+
 Droplet Docker
 --------------
 
